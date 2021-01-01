@@ -3,4 +3,6 @@
     <type name="Magento\Catalog\Model\Product">
         <plugin name="plugin_for_product_name" type="Codilar\Demo\Plugins\Product" />
     </type>
+
+    <preference  for="Magento\Catalog\Model\Product" type="Codilar\Demo\Model\Product"  />
 </config>
