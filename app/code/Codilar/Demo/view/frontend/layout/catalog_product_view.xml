@@ -6,6 +6,7 @@
  */
 -->
 <page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_layout.xsd">
+    <!--That is, Magento has automatically created the http (or https) paths we’ve been-->
     <head>
         <css src="Pulsestorm_JavascriptCssExample::test.css"/>
         <link src="Pulsestorm_JavascriptCssExample::test.js"/>
