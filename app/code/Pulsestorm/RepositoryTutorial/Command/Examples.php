@@ -30,10 +30,10 @@ class Examples extends Command
     {
          $repo = $this->objectManager->get('Magento\Cms\Model\PageRepository');
          $page = $repo->getById(7);
-         echo $page->getTitle(),"\n";
-        $page->setTitle($page->getTitle() . ', Edited by code!');
+        $page->setId(null);
+        $page->setTitle('My Duplicated Page');
         $repo->save($page);
-        echo 'yes';
+        echo $page->getId(),"\n";
 
         /*$repo = $this->objectManager->get('Magento\Catalog\Model\ProductRepository');
         $repo->getList();*/
