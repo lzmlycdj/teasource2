@@ -28,13 +28,25 @@ class Examples extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-         $repo = $this->objectManager->get('Magento\Cms\Model\PageRepository');
-         $page = $repo->getById(8);
+
+        $repo = $this->objectManager->get('Magento\Catalog\Model\ProductRepository');
+        $search_criteria = $this->objectManager->create(
+            'Magento\Framework\Api\SearchCriteriaInterface'
+        );
+        $result = $repo->getList($search_criteria);
+        $products = $result->getItems();
+        foreach($products as $product)
+        {
+            echo $product->getSku(),"\n";
+        }
+//         $repo = $this->objectManager->get('Magento\Cms\Model\PageRepository');
+//         var_dump($repo->getList());
+//         $page = $repo->getById(8);
    /*     $page->setId(null);
         $page->setTitle('My Duplicated Page');
         $repo->save($page);
         echo $page->getId(),"\n";*/
-        $repo->delete($page);
+//        $repo->delete($page);
 //        $repo->deleteById($page_id);
 
         /*$repo = $this->objectManager->get('Magento\Catalog\Model\ProductRepository');
