@@ -19,7 +19,13 @@ class Main extends \Magento\Framework\View\Element\Template
         $todo = $this->toDoFactory->create();
 
         $todo = $todo->load(1);
+
         var_dump($todo->getData());
+
+        var_dump($todo->getItemText());
+
+        var_dump($todo->getData('item_text'));
+
         var_dump('Done');
         exit;
 //        $model = Mage::getModel('pulsestorm_todocrud/todoitem')
