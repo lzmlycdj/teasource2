@@ -11,6 +11,6 @@ class TodoItem extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
      */
     protected function _construct() // phpcs:ignore PSR2.Methods.MethodDeclaration
     {
-        $this->_init('pulsestorm_todocrud_todoitem', 'todoitem_id');
+        $this->_init('pulsestorm_todocrud_todoitem', 'pulsestorm_todocrud_todoitem_id');
     }
 }
