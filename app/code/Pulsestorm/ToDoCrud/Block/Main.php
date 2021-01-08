@@ -18,15 +18,13 @@ class Main extends \Magento\Framework\View\Element\Template
     function _prepareLayout(){
         $todo = $this->toDoFactory->create();
 
-        $todo = $todo->load(1);
+        $collection = $todo->getCollection();
 
-        var_dump($todo->getData());
-
-        var_dump($todo->getItemText());
-
-        var_dump($todo->getData('item_text'));
-
-        var_dump('Done');
+        foreach($collection as $item)
+        {
+            var_dump('Item ID: ' . $item->getId());
+            var_dump($item->getData());
+        }
         exit;
 //        $model = Mage::getModel('pulsestorm_todocrud/todoitem')
 //            ->setItemText('Finish my Magento Article')
