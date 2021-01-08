@@ -23,34 +23,51 @@ class InstallSchema implements \Magento\Framework\Setup\InstallSchemaInterface
         $table = $installer->getConnection()->newTable(
             $installer->getTable('pulsestorm_todocrud_todoitem')
         )->addColumn(
-            'todoitem_id',
+            'pulsestorm_todocrud_todoitem_id',
             \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
             null,
-            [ 'identity' => true, 'nullable' => false, 'primary' => true, 'unsigned' => true ],
+            array (
+                'identity' => true,'nullable' => false,'primary' => true,'unsigned' => true,
+            ),
             'Entity ID'
         )->addColumn(
-            'title',
+            'item_text',
             \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
             255,
-            [ 'nullable' => false ],
-            'Demo Title'
+            array (
+                'nullable' => false,
+            ),
+            'Text of the to do item'
+
+        )->addColumn(
+            'date_completed',
+            \Magento\Framework\DB\Ddl\Table::TYPE_DATETIME,
+            null,
+            array (
+                'nullable' => true,
+            ),
+            'Date the item was completed'
         )->addColumn(
             'creation_time',
             \Magento\Framework\DB\Ddl\Table::TYPE_TIMESTAMP,
             null,
-            [ 'nullable' => false, 'default' => \Magento\Framework\DB\Ddl\Table::TIMESTAMP_INIT ],
+            array (
+            ),
             'Creation Time'
         )->addColumn(
             'update_time',
             \Magento\Framework\DB\Ddl\Table::TYPE_TIMESTAMP,
             null,
-            [ 'nullable' => false, 'default' => \Magento\Framework\DB\Ddl\Table::TIMESTAMP_INIT_UPDATE ],
+            array (
+            ),
             'Modification Time'
         )->addColumn(
             'is_active',
             \Magento\Framework\DB\Ddl\Table::TYPE_SMALLINT,
             null,
-            [ 'nullable' => false, 'default' => '1' ],
+            array (
+                'nullable' => false,'default' => '1',
+            ),
             'Is Active'
         );
         $installer->getConnection()->createTable($table);
