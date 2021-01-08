@@ -29,11 +29,13 @@ class Examples extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
          $repo = $this->objectManager->get('Magento\Cms\Model\PageRepository');
-         $page = $repo->getById(7);
-        $page->setId(null);
+         $page = $repo->getById(8);
+   /*     $page->setId(null);
         $page->setTitle('My Duplicated Page');
         $repo->save($page);
-        echo $page->getId(),"\n";
+        echo $page->getId(),"\n";*/
+        $repo->delete($page);
+//        $repo->deleteById($page_id);
 
         /*$repo = $this->objectManager->get('Magento\Catalog\Model\ProductRepository');
         $repo->getList();*/
