@@ -17,8 +17,9 @@ class Main extends \Magento\Framework\View\Element\Template
     }
     function _prepareLayout(){
         $todo = $this->toDoFactory->create();
-        $todo->setData('item_text','Finish my Magento article')
-            ->save();
+
+        $todo = $todo->load(1);
+        var_dump($todo->getData());
         var_dump('Done');
         exit;
 //        $model = Mage::getModel('pulsestorm_todocrud/todoitem')
