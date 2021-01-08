@@ -29,10 +29,12 @@ class Examples extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
          $repo = $this->objectManager->get('Magento\Cms\Model\PageRepository');
-         $page = $repo->getById(2);
+         $page = $repo->getById(7);
          echo $page->getTitle(),"\n";
-        exit;
-        echo get_class($page),"\n";
+        $page->setTitle($page->getTitle() . ', Edited by code!');
+        $repo->save($page);
+        echo 'yes';
+
         /*$repo = $this->objectManager->get('Magento\Catalog\Model\ProductRepository');
         $repo->getList();*/
     }
